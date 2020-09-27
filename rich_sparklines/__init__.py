@@ -33,7 +33,7 @@ class Graph(Panel):
             for colour, line in zip(
                 self.colours,
                 sparklines.sparklines(
-                    self.q, num_lines=len(self.colours), minimum=0, maximum=20
+                    self.queue, num_lines=len(self.colours), minimum=0, maximum=20
                 ),
             )
         ]

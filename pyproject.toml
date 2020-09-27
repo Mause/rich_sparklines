@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rich_sparklines"
-version = "0.1.0"
+version = "0.1.1"
 description = "Integrate rich and sparklines libraries"
 authors = ["Elliana <me@mause.me>"]
 license = "MIT"

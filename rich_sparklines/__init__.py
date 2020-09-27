@@ -2,10 +2,9 @@ from collections import deque
 from typing import Callable, Deque
 
 import sparklines
-from rich.console import RenderGroup
+from rich.console import RenderableType, RenderGroup
 from rich.padding import Padding
 from rich.panel import Panel
-from rich.renderable import Renderable
 from rich.text import Text
 
 
@@ -28,7 +27,7 @@ class Graph(Panel):
             self.rerender(), title=f"{label}: [blue]?[/]", width=self.length + 4,
         )
 
-    def rerender(self) -> Renderable:
+    def rerender(self) -> RenderableType:
         lines = [
             Text(line, style=colour)
             for colour, line in zip(

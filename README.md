@@ -30,4 +30,4 @@ if __name__ == "__main__":
 
 will produce something like this:
 
-![Example](./example.png)
+![Example](https://github.com/Mause/rich_sparklines/raw/master/example.png)

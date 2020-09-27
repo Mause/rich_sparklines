@@ -5,6 +5,7 @@ import sparklines
 from rich.console import RenderGroup
 from rich.padding import Padding
 from rich.panel import Panel
+from rich.renderable import Renderable
 from rich.text import Text
 
 
@@ -17,7 +18,7 @@ class Graph(Panel):
         label,
         get_value: Callable[[], int],
         colours=("red1", "orange1", "yellow1", "green"),
-    ):
+    ) -> None:
         self.queue = deque([0] * self.length, maxlen=self.length)
         self.label = label
         self.colours = colours
@@ -27,7 +28,7 @@ class Graph(Panel):
             self.rerender(), title=f"{label}: [blue]?[/]", width=self.length + 4,
         )
 
-    def rerender(self):
+    def rerender(self) -> Renderable:
         lines = [
             Text(line, style=colour)
             for colour, line in zip(
@@ -39,10 +40,10 @@ class Graph(Panel):
         ]
         return Padding(RenderGroup(*lines), 1)
 
-    def update(self):
+    def update(self) -> None:
         used = self.get_value()
 
-        self.q.extend([max(0, used if used != "?" else 0)])
+        self.queue.extend([max(0, used if used != "?" else 0)])
 
         self.title = f"{self.label}: [blue]{used}[/]"
         self.renderable = self.rerender()

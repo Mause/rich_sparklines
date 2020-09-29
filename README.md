@@ -1,7 +1,6 @@
 Something like this:
 
 ```python
-import os
 import random
 import time
 
@@ -17,7 +16,7 @@ def main():
     while True:
         graph.update()
 
-        os.system("cls")
+        console.clear()
 
         console.print(graph)
 

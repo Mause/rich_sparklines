@@ -24,7 +24,9 @@ class Graph(Panel):
         self.get_value = get_value
 
         super().__init__(
-            self.rerender(), title=f"{label}: [blue]?[/]", width=self.length + 4,
+            self.rerender(),
+            title=f"{label}: [blue]?[/]",
+            width=self.length + 4,
         )
 
     def rerender(self) -> RenderableType:
